@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+/* body {
+  background-color: #faf0e6;
+} */
+html {
+  margin-left: calc(100vw - 100%);
+}
