@@ -1,7 +1,43 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Hero from "../components/Hero";
 import MapView from "../fragments/MapView";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ShareIcon from "@mui/icons-material/Share";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import CallIcon from "@mui/icons-material/Call";
+import EmailIcon from "@mui/icons-material/Email";
+import { ReactNode } from "react";
+import LinkWithIcon from "../components/LinkWithIcon";
+
+interface SectionProps {
+  title: string;
+  icon: ReactNode;
+  children: ReactNode;
+}
+const Section = ({ title, icon, children }: SectionProps) => {
+  return (
+    <Box my={2}>
+      <Box sx={{ display: "flex", gap: 2 }}>
+        {icon}
+        <Typography variant="h5" component={"h3"} gutterBottom>
+          {title}
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          paddingLeft: 2,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "left",
+          gap: 2,
+        }}
+      >
+        {children}
+      </Box>
+    </Box>
+  );
+};
 
 export const Contact = () => {
   return (
@@ -26,104 +62,74 @@ export const Contact = () => {
           paddingTop: 4,
         }}
       >
-        <Typography variant="h5" component={"body"} gutterBottom>
-          Our Social Media
-        </Typography>
-        <Box>
-          <Link
-            href="https://www.facebook.com/trendesign.lb/"
-            target="_blank"
-            color="inherit"
-            sx={{ mx: 1 }}
-            aria-label="check on facebook"
-          >
-            <Facebook fontSize="large" />
-          </Link>
-          <Link
-            href="https://wa.me/+96170888660"
-            target="_blank"
-            color="inherit"
-            sx={{ mx: 1 }}
-            aria-label="Chat on whatsapp"
-          >
-            <WhatsApp fontSize="large" />
-          </Link>
-          <Link
-            href="https://www.instagram.com/trendesign.lb/"
-            target="_blank"
-            color="inherit"
-            sx={{ mx: 1 }}
-            aria-label="check on instagram"
-          >
-            <Instagram fontSize="large" />
-          </Link>
-        </Box>
+        {/* REACH US */}
+        <Section title="Reach Us" icon={<ShareIcon fontSize="large" />}>
+          <Box sx={{ display: "flex", gap: 2 }}>
+            <Typography>
+              <b>On Social Media</b>
+            </Typography>
 
-        <br />
-        <Typography variant="h5" component={"body"} gutterBottom>
-          Availablity
-        </Typography>
-        <Typography>
-          <b>Monday - Friday</b>: 9 a.m. to 5 p.m.
-        </Typography>
-        <Typography>
-          <b>Saturday</b>: 9 a.m. to 1 p.m.
-        </Typography>
-        <br />
-
-        <Typography variant="h5" component={"body"} gutterBottom>
-          How to reach us
-        </Typography>
-        <Typography>
-          <b>Call us</b> on{" "}
-          <Link
-            sx={{ color: "black", textDecoration: "none" }}
-            href="tel:+9611555360"
-          >
-            +961 1 555-360
-          </Link>
-          ,{" "}
-          <Link
-            sx={{ color: "black", textDecoration: "none" }}
-            href="tel:+96170888660"
-          >
-            +961 70 888 660
-          </Link>
-        </Typography>
-
-        <Box sx={{ display: "flex", justifyContent: "cetner" }}>
-          <Typography>
-            <b>Whatsapp call or chat</b> at{" "}
-            <Link
-              sx={{ color: "black", textDecoration: "none" }}
+            <LinkWithIcon
+              text=""
+              icon={<Facebook />}
+              href="https://www.facebook.com/trendesign.lb/"
+              ariaLabel="Facebook page"
+            />
+            <LinkWithIcon
+              text=""
+              icon={<Instagram />}
+              href="https://www.instagram.com/trendesign.lb/"
+              ariaLabel="Instagram page"
+            />
+            <LinkWithIcon
+              text=""
+              icon={<WhatsApp />}
               href="https://wa.me/+96170888660"
-              target="_blank"
-            >
-              +961 70 888 660
-            </Link>
+              ariaLabel="WhatsApp page"
+            />
+          </Box>
+
+          <LinkWithIcon
+            text="Landline: +961 1 555-360"
+            icon={<CallIcon />}
+            href="tel:+9611555360"
+            ariaLabel="Call Landline"
+          />
+          <LinkWithIcon
+            text="Mobile: +961 70 888 660"
+            icon={<CallIcon />}
+            href="tel:+96170888660"
+            ariaLabel="Call Mobile"
+          />
+          <LinkWithIcon
+            text="Email: sales@trendesign.com"
+            icon={<EmailIcon />}
+            href="mailto:sales@trendesign.com"
+            ariaLabel="Send Email"
+          />
+        </Section>
+
+        {/* OFFICE HOURS SECTION */}
+        <Section
+          title="Office Hours"
+          icon={<AccessTimeIcon fontSize="large" />}
+        >
+          <Typography>
+            <b>Monday - Friday</b>: 9 a.m. to 5 p.m.
           </Typography>
-          <Link
-            href="https://wa.me/+96170888660"
-            target="_blank"
-            color="inherit"
-            sx={{ mx: 1 }}
-          >
-            <WhatsApp />
-          </Link>
-        </Box>
+          <Typography>
+            <b>Saturday</b>: 9 a.m. to 1 p.m.
+          </Typography>
+        </Section>
 
-        <Typography>
-          <b>By Email</b> at{" "}
-          <Link sx={{ color: "black" }} href="mailto:sales@trendesign.com">
-            sales@trendesign.com
-          </Link>
-        </Typography>
+        {/* LOCATION SECTION */}
+        <Section title="Location" icon={<LocationOnIcon fontSize="large" />}>
+          <Typography>
+            Visit our office in Haret Hreik, Amlieh street <br /> Beirut,
+            Lebanon
+          </Typography>
+        </Section>
 
-        <br />
-
-        <Typography>
-          Or visit our office in Haret Hreik, Amlieh street
-        </Typography>
         <MapView />
         <br />
       </Box>

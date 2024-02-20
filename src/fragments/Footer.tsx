@@ -16,7 +16,13 @@ const Footer: React.FC = () => {
     >
       <Container maxWidth="lg">
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Typography variant="h6" component="h1">
+          <Typography
+            variant="h6"
+            component={Link}
+            href="https://trendesign.media"
+            sx={{ textDecoration: "none" }}
+            color={"inherit"}
+          >
             Trendesign
           </Typography>
           <Box>

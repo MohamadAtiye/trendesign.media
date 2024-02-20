@@ -8,7 +8,6 @@ import {
   useMediaQuery,
   Menu,
   MenuItem,
-  Box,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Divider from "@mui/material/Divider";

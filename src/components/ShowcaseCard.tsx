@@ -1,11 +1,4 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 interface ShowcaseCardProps {
   title: string;
@@ -24,7 +17,8 @@ export const ShowcaseCard = ({ title, text, image }: ShowcaseCardProps) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
-          {title}        </Typography>
+          {title}{" "}
+        </Typography>
 
         <Typography variant="body2" color="text.secondary">
           {text}
