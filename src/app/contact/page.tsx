@@ -1,14 +1,17 @@
+"use client";
+
 import { Box, Typography } from "@mui/material";
 import Hero from "../components/Hero";
-import MapView from "../fragments/MapView";
+import { ReactNode } from "react";
+import LinkWithIcon from "../components/LinkWithIcon";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ShareIcon from "@mui/icons-material/Share";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
-import { ReactNode } from "react";
-import LinkWithIcon from "../components/LinkWithIcon";
+import MapView from "../components/MapView";
+import { IMG_SRC } from "../utils/constants";
 
 interface SectionProps {
   title: string;
@@ -39,11 +42,11 @@ const Section = ({ title, icon, children }: SectionProps) => {
   );
 };
 
-export const Contact = () => {
+const Contact = () => {
   return (
     <>
       <Hero
-        image={"https://trendesign.sirv.com/Images/imgs/contactHero.jpg"}
+        image={IMG_SRC + "/imgs/contactHero.jpg"}
         text={"Get in touch"}
         subtext={
           <>
@@ -136,3 +139,5 @@ export const Contact = () => {
     </>
   );
 };
+
+export default Contact;

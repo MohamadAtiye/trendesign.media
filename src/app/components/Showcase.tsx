@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import { ShowcaseCard } from "../components/ShowcaseCard";
 import { CATEGORIES } from "../utils/constants";
+import { ShowcaseCard } from "./ShowcaseCard";
 
 export const Showcase = () => {
   return (

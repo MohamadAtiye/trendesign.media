@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Box, Container, Link, Typography } from "@mui/material";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";

@@ -1,11 +1,11 @@
 import React from "react";
-import Hero from "../components/Hero";
-
+import Hero from "./Hero";
+import { IMG_SRC } from "../utils/constants";
 const HomeTopContainer = () => {
   return (
     <Hero
       // image={"./imgs/hero2.jpg"}
-      image={"https://trendesign.sirv.com/Images/imgs/hero2.jpg"}
+      image={IMG_SRC + "/imgs/hero2.jpg"}
       text={["Print", "Craft", "Personalize"]}
       subtext={
         <>

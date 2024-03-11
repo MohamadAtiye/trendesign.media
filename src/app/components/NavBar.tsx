@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   AppBar,
@@ -12,7 +14,9 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import Divider from "@mui/material/Divider";
 import { CATEGORIES } from "../utils/constants";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const PAGES = [
   { label: "Home", to: "/" },
@@ -21,8 +25,8 @@ const PAGES = [
 ];
 
 export default function NavBar() {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -74,7 +78,7 @@ export default function NavBar() {
         <MenuItem
           key={page.label}
           component={Link}
-          to={page.to}
+          href={page.to}
           onClick={handleMobileMenuClose}
         >
           <p>{page.label}</p>
@@ -96,15 +100,13 @@ export default function NavBar() {
           height: "64px",
         }}
       >
-        {/* <Typography
+        <img
           id="back-to-top-anchor"
-          variant="h3"
-          component="h1"
-          sx={{ flexGrow: 1, fontWeight: 600, textAlign: "center", my: 2 }}
-        >
-          Trendesign
-        </Typography> */}
-        <img src={"./trendLogoHorizon.jpg"} alt="trendesign" />
+          width={147}
+          height={60}
+          src={"./trendLogoHorizon.jpg"}
+          alt="trendesign"
+        />
       </Toolbar>
 
       {!isMobile && (
@@ -120,7 +122,7 @@ export default function NavBar() {
           {PAGES.map((page) => (
             <MenuItem
               component={Link}
-              to={page.to}
+              href={page.to}
               key={page.label}
               sx={{
                 transition: "all 0.2s ease-in",
